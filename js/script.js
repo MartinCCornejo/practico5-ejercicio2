@@ -11,6 +11,7 @@ class Persona {
     }
 
     mostrarGeneracion() {
+        console.log('Método mostrarGeneracion llamado');
         let nacimiento = this.añoDeNacimiento;
         let frase = `${this.nombre} ${this.apellido} que nació en el año ${nacimiento} pertenece a la `;
     
@@ -32,6 +33,7 @@ class Persona {
     }
 
     esMayorDeEdad(){
+        console.log('Método esMayorDeEdad llamado');
         if (this.edad >= 18) {
             alert(`${this.nombre} es mayor de edad`);
         } else if (this.edad < 18){
@@ -42,10 +44,11 @@ class Persona {
     }
 
     mostrarDatos(){
-        const elementoMain = document.querySelector('main');
-        const contenedor = document.createElement('DIV');
+        const contenedorPersona = document.querySelector('.personaCreada');
+        const contenedorBotones = document.querySelector('.contenedorBotones');
+        contenedorBotones.className += 'd-block';
 
-        contenedor.innerHTML+= `
+        contenedorPersona.innerHTML+= `
         <h2 class="display-5 text-center mb-4">Persona creada:</h2>
         <h3>${this.nombre} ${this.apellido}</h3>
         <ul>
@@ -55,55 +58,43 @@ class Persona {
             <li>Peso: ${this.peso} Kg</li>
             <li>Altura: ${this.altura} cm</li>
             <li>Año de nacimiento: ${this.añoDeNacimiento}</li>
-        </ul>
-        <div class= "mt-3 text-center">
-            <button class="btn btn-outline-success">Mostrar generación</button>
-            <button class="btn btn-outline-success">Es mayor de edad</button>
-        </div>
-        `
-
-        elementoMain.children[0].appendChild(contenedor);  // Agreamos la persona creada al nodo padre
-        elementoMain.removeChild(elementoMain.children[1]);  // Eliminamos el nodo hijo que crea la persona
-
+        </ul>`;
     }
-}
-
-
-// // Funcion que muestra la generación
-const verGeneracion = () => {
-    const personaCreada = crearPersona();
-    personaCreada.mostrarGeneracion();
-}
-
-
-// // Función que muestra si es mayor de edad 
-const mayorDeEdad = () => {
-    const personaCreada = crearPersona();
-    personaCreada.esMayorDeEdad();
 }
 
 
 // Funcion para tomar los datos de los inputs y crear la persona 
 const crearPersona = (e) => {
     e.preventDefault();
+    
     const datosInput = document.querySelectorAll('.form-control');
     const datosPersona = [];
+    const btnCrearPersona = document.getElementById("btn-crearPersona");
+    btnCrearPersona.className = 'd-none';
 
     for (let i = 0; i < datosInput.length; i++) {
         datosPersona.push(datosInput[i].value);
     }
     
-    // Creamos el objeto persona 
+    // Creamos el objeto persona con las propiedades escritas en los inputs
     const persona1 = new Persona(...datosPersona);
-
     persona1.mostrarDatos();
 
-    return persona1;
+    // Funcion que muestra la generación
+    btnVerGeneracion.addEventListener('click',() => {
+        persona1.mostrarGeneracion();
+    })
+    
+    
+    // Función que muestra si es mayor de edad 
+    btnMayorDeEdad.addEventListener('click',() => {
+        persona1.esMayorDeEdad();
+    });
 }
 
+const btnVerGeneracion = document.getElementById('btn-generacion');
+const btnMayorDeEdad = document.getElementById('btn-mayorDeEdad');
 
-// Creamos el evento que al hacer click en crear persona, te muestre la persona creada 
+
 const contenedorForm = document.getElementById('form-container');
-const b
-
 contenedorForm.addEventListener('submit',crearPersona);

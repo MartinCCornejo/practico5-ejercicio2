@@ -6,8 +6,8 @@
       name="description"
       content="EJercicio 2 del TP5 - Ejercicios de DOM y BOM"
     />
-    <meta name="keywords" content="javascript, js, POO, DOM, BOM"/>
-    <meta name="author" content="Martín Cristian Cornejo"/>
+    <meta name="keywords" content="javascript, js, POO, DOM, BOM" />
+    <meta name="author" content="Martín Cristian Cornejo" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -20,58 +20,144 @@
   </head>
   <body>
     <header class="text-center bg-danger text-light py-2">
-        <h1 class="display-3">Trabajo practico N5</h1>
-        <h2 class="display-6">Ejercicio 2 - Generaciones</h2>
+      <h1 class="display-3">Trabajo practico N5</h1>
+      <h2 class="display-6">Ejercicio 2 - Generaciones</h2>
     </header>
 
-    <main class="container">
-        <section class="my-4"></section>
-        <section class="my-5"> 
-            <h3 class="text-center display-6">Rellene los datos del formulario para crear a la persona</h3>
-            <div class="mt-4">
-                <form class="row" id="form-container">
-                    <div class="mb-3 col-md-6">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre">
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label for="apellido" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="apellido" placeholder="Ingrese el apellido">
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label for="edad" class="form-label">Edad</label>
-                        <input type="number" class="form-control" id="edad" placeholder="Ingrese la edad">
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label for="dni" class="form-label">DNI</label>
-                        <input type="number" class="form-control" id="dni" placeholder="Ingrese el DNI">
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label for="sexo" class="form-label">Sexo (H hombre, M mujer)</label>
-                        <input type="text" class="form-control" id="sexo" placeholder="H (hombre) o M (mujer)">
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label for="peso" class="form-label">Peso (kg)</label>
-                        <input type="number" class="form-control" id="peso" placeholder="Ingrese el peso">
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label for="altura" class="form-label">Altura (cm)</label>
-                        <input type="number" class="form-control" id="altura" placeholder="Ingrese la altura">
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label for="añoDeNacimiento" class="form-label">Año de nacimiento</label>
-                        <input type="number" class="form-control" id="añoDeNacimiento" placeholder="Ingrese el año de nacimiento">
-                    </div>
-                    <div class="mt-3 text-center">
-                        <button class="btn btn-success" type="submit" id="btn-crearPersona">Crear persona</button>
-                    </div>
-                </form>
-            </div>
-        </section>
+    <main>
+      <section class="container">
+        <div class="my-5">
+          <h3 class="text-center display-6">
+            Rellene los datos del formulario para crear a la persona
+          </h3>
+          <div class="mt-4">
+            <form class="row" id="form-container">
+              <div class="mb-3 col-md-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nombre"
+                  placeholder="Ingrese el nombre"
+                  minlength="2"
+                  maxlength="30"
+                  required
+                />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="apellido"
+                  placeholder="Ingrese el apellido"
+                  minlength="2"
+                  maxlength="40"
+                  required
+                />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="edad" class="form-label">Edad</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="edad"
+                  placeholder="Ingrese la edad"
+                  required
+                />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="dni" class="form-label">DNI</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="dni"
+                  placeholder="Ingrese el DNI"
+                  minlength="7"
+                  maxlength="9"
+                  required
+                />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="sexo" class="form-label"
+                  >Sexo (H hombre, M mujer)</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="sexo"
+                  placeholder="H (hombre) o M (mujer)"
+                  minlength="1"
+                  maxlength="1"
+                  required
+                />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="peso" class="form-label">Peso (kg)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="peso"
+                  placeholder="Ingrese el peso"
+                  minlength="2"
+                  maxlength="4"
+                  required
+                />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="altura" class="form-label">Altura (cm)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="altura"
+                  placeholder="Ingrese la altura"
+                  minlength="2"
+                  maxlength="3"
+                  required
+                />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="añoDeNacimiento" class="form-label"
+                  >Año de nacimiento</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="añoDeNacimiento"
+                  placeholder="Ingrese el año de nacimiento"
+                  minlength="4"
+                  maxlength="4"
+                  required
+                />
+              </div>
+              <div class="mt-3 text-center">
+                <button
+                  class="btn btn-success"
+                  type="submit"
+                  id="btn-crearPersona"
+                >
+                  Crear persona
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="my-5">
+          <div class="personaCreada mb-3"></div>
+          <div class="mt-3 text-center contenedorBotones d-none">
+            <button class="btn btn-outline-success" id="btn-generacion">
+              Mostrar generación
+            </button>
+            <button class="btn btn-outline-success" id="btn-mayorDeEdad">
+              Es mayor de edad
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="bg-dark py-3 text-light text-center">
-        <p>&copy; Martín Cornejo - Todos los derechos reservados</p>
+    <footer class="bg-dark py-3 px-1 text-light text-center">
+      <p>&copy; Martín Cornejo - Todos los derechos reservados</p>
     </footer>
 
     <script
